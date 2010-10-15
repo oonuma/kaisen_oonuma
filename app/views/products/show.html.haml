@@ -5,7 +5,7 @@
   = @product.name
 %p
   %b Description:
-  = @product.description
+  = simple_format(@product.description)
 %p
   %b Image url:
   = @product.image_url
