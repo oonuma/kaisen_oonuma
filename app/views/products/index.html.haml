@@ -2,6 +2,7 @@
 
 %table
   %tr
+    %th Recommend
     %th Name
     %th Description
     %th Image url
@@ -12,6 +13,7 @@
 
   - @products.each do |product|
     %tr
+      %td= product.recommended
       %td= product.name
       %td= simple_format(product.description)
       %td= image_tag(product.image_url)
