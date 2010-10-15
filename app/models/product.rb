@@ -8,9 +8,6 @@ class Product < ActiveRecord::Base
 
   private
   def price_must_be_a_multiple_of_hundreds
-    errors.add(:price,"100円単位でお願いします") 
-      if (price % 100 ) == 0
-        puts "100円単位でお願いします" unless false
-      end
+    errors.add(:price,"must be a multiple of hundreds") unless price % 100  == 0
   end
 end
