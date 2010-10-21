@@ -1,4 +1,6 @@
 KaisenOonuma::Application.routes.draw do
+  get "store/index"
+
   resources :shops
 
   resources :products
