@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   # GET /products.xml
   def index
     @products = Product.all
-
+    @products = Product.paginate :page => params[:page], :per_page => 4
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @products }
