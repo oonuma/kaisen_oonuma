@@ -5,7 +5,8 @@ class Product < ActiveRecord::Base
   validates_format_of :image_url, :with => %r{\.(gif|jpg|png)\Z}i,
                       :message => "はGIF,JPG,PNG画像のURLでなければなりません"
   validate :price_must_be_a_multiple_of_hundreds
-
+  scope :for_sale, :order => "created_at DESC"
+  scope :name_like, lambda {|q| {:conditorns => {'name like ?', "%#{q}%"]}}
   private
   def price_must_be_a_multiple_of_hundreds
     errors.add(:price,"must be a multiple of hundreds") unless price % 100  == 0
