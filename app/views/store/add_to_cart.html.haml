@@ -1,13 +1,20 @@
 %h2 買い物カゴ
 
-%p 以下の商品が買い物カゴに追加されました
-
-%p= @product.name
-
-%ul
+%table
   - @cart.items.each do |item|
-    %li
-      = item.name
-      &times;
-      = item.quantity
-     
+    %tr
+      %td
+        = item.name
+        &times;
+        = item.quantity
+      %td.item-price
+        = number_with_delimiter(item.price)
+        円
+
+  %tr.total-line
+    %td 合計）
+    %td.total-cell
+      = number_with_delimiter(@cart.total_price)
+      円
+= button_to "買い物カゴを空にする", :action => 'empty_cart'
+

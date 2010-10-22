@@ -11,4 +11,8 @@ class Cart
   def items
     @items ||= []
   end
+
+  def total_price
+    @items.map(&:price).sum
+  end
 end
