@@ -44,6 +44,10 @@ body {
   font-size: 130%;
 }
 
+#store .product .button_to {
+  text-align: right;
+}
+
 #footer {
   font-size: 90%;
   text-align: center;
