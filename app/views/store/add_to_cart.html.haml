@@ -2,9 +2,10 @@
 
 %p 以下の商品が買い物カゴに追加されました
 
-%p 演習)　ここに追加された商品名を表示して下さい！
-
 %ul
-  - @cart.items.each do |item|
-    %li= item.name
-
+  - @cart.items_with_quantity.each do |item, quantity|
+    %li
+      = item.name
+      &times;
+      = quantity
+     
