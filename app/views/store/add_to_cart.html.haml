@@ -10,6 +10,8 @@
       %td.item-price
         = number_with_delimiter(item.price)
         円
+      %td
+        = button_to "この商品をキャンセル", :action => 'remove_item_from_cart', :id => item.product_id
 
   %tr.total-line
     %td 合計）

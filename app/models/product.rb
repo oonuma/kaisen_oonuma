@@ -8,6 +8,7 @@ class Product < ActiveRecord::Base
   scope :for_sale, :order => "created_at DESC"
   scope :name_like, lambda {|q| {:conditon => ['name like ?', "%#{q}%"]}}
   scope :recent, lambda {|kazu| {:limit => kazu, :order => "created_at DESC"}}
+  scope :recommended, :conditions => {:recommended => true } 
   private
   def price_must_be_a_multiple_of_hundreds
     errors.add(:price,"must be a multiple of hundreds") unless price % 100  == 0
