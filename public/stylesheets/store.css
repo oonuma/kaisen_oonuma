@@ -58,6 +58,16 @@ body {
   font-size:130%
 }
 
+#cart, #cart table {
+  padding: 10px;
+  font-size: 90%;
+}
+
+#cart table {
+  border-top: 1px dotted;
+  border-bottom: 1px dotted;
+  margin-bottom: 10px;
+}
 .item-price, .total-line {
   text-align: right;
 }

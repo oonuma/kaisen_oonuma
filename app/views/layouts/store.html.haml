@@ -12,6 +12,8 @@
     .clear
     #colums
       #side.grid_3
+        #cart
+          = render :partial => 'cart',:object => @cart
         %ul#nav
           %li
             = link_to "トップ", store_path
