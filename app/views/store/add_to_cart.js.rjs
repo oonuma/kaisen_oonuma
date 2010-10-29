@@ -1,0 +1,2 @@
+
+ page.replace_html "cart", :partial => "cart", :object => @cart

@@ -1,4 +1,5 @@
 class Shop < ActiveRecord::Base
+  has_many :products
   validates_presence_of :name, :description, :lines_summary
   validates_format_of :image_url, :with => %r{\.(gif|jpg|png)\Z}i,
                       :message => "はGIF,JPG,PNG画像のURLでなければなりません"
