@@ -4,9 +4,10 @@
   %tr
     %th Recommend
     %th Name
+    %th Shop
     %th Description
     %th Image url
-    %Th Price
+    %th Price
     %th
     %th
     %th
@@ -15,6 +16,7 @@
     %tr
       %td= product.recommended
       %td= product.name
+      %td= product.shop.name
       %td= simple_format(product.description)
       %td= image_tag(product.image_url)
       %td= product.price
