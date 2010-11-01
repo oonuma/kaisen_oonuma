@@ -8,6 +8,6 @@
     %td.total-cell
       = number_with_delimiter(@cart.total_price)
       円
-
+= button_to "レジにすすむ", checkout_path
 = form_tag({:action => "empty_cart"}, :remote => true, :class => "order") do
   = submit_tag '買い物カゴを空にする'

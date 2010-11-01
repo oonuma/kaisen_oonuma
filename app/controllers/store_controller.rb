@@ -5,6 +5,23 @@ class StoreController < ApplicationController
     @products = Product.for_sale.paginate :page => params[:page], :per_page => 4
   end
 
+  def checkout
+    if @cart.nil? || @cart.items.empty?
+      redirect_to store_path, :notice => "カートは現在、空です"
+    end
+  end
+
+  def save_order
+    @order = Order.new(params[:order])
+    @order.add_line_items_from_cart(@cart)
+    if @order.save
+      @cart.empty!
+      redirect_to store_path, :notice => "ご注文ありがとうございます!!"
+    else
+      render checkout_path
+    end
+  end
+
   def add_to_cart
     @product = Product.find(params[:id])
     @cart.add_product(@product)
