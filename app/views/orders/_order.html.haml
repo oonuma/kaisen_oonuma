@@ -1,0 +1,37 @@
+%table
+  %tr
+    %th 注文ID
+    %td= order.id
+    %th 注文日時
+    %td= order.created_at.strftime("%Y-%m-%d %H:%M")
+  %tr
+    %th 氏名
+    %td= order.name
+    %th メールアドレス
+    %td= order.email
+  %tr
+    %th 住所
+    %td{:colspan => 3}
+      = order.address
+  %tr
+    %th 支払い方法
+    %td{:colspan => 3}
+      = order.pay_type
+  %tr
+    %th 注文明細
+    %td
+      - order.line_items.map(&:product).map(&:name).each do |item_name|
+        = item_name
+        %br
+    %td.number
+      - order.line_items.each do |line_item|
+        = number_with_delimiter(line_item.product.price)
+        *
+        = number_with_delimiter(line_item.quantity)
+        %br
+    %td.number
+      - order.line_items.each do |line_item|
+        = number_with_delimiter(line_item.product.price * line_item.quantity)
+        %br
+%br
+

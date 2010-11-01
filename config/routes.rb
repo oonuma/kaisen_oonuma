@@ -1,4 +1,6 @@
 KaisenOonuma::Application.routes.draw do
+  get "orders/index"
+
   get "store/index"
   get "store" => "store#index", :as => :store
   get "store/suppliers/" => "store#suppliers"
@@ -8,7 +10,7 @@ KaisenOonuma::Application.routes.draw do
   post "store/empty_cart" => "store#empty_cart"
   post "store/remove_item_from_cart/:id" => "store#remove_item_from_cart"
   resources :shops
-
+  resources :orders
   resources :products
 
   # The priority is based upon order of creation:
