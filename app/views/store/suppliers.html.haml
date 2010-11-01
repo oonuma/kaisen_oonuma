@@ -1,0 +1,11 @@
+%h1
+  参加店舗の一覧
+%ul  
+  - @suppliers.each do |supplier|
+    %li
+      = supplier.name
+      %ul
+        - supplier.products.each do |product|
+          %li
+            = product.name
+

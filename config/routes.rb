@@ -1,6 +1,7 @@
 KaisenOonuma::Application.routes.draw do
   get "store/index"
   get "store" => "store#index", :as => :store
+  get "store/suppliers/" => "store#suppliers"
   post "store/add_to_cart/:id" => "store#add_to_cart"
   post "store/empty_cart" => "store#empty_cart"
   post "store/remove_item_from_cart/:id" => "store#remove_item_from_cart"
