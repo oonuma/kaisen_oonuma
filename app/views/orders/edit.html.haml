@@ -14,6 +14,15 @@
   .field
     = f.label :pay_type, "支払い方法"
     = f.select :pay_type, Order::PAYMENT_TYPES, :prompt => "---"
+  %h3 売上明細
+  = f.fields_for :line_items do |line_item_form|
+    .field
+      = line_item_form.label :product, "商品"
+      = line_item_form.collection_select :product_id, Product.all, :id, :name, :include_blank => "---"
+
+      = line_item_form.label :quantity, "数量"
+      = line_item_form.text_field :quantity, :size => 5
+
   .actions
     = f.submit '保存する',:class => "submit"
 = link_to '戻る', orders_path
