@@ -16,13 +16,10 @@
     = f.select :pay_type, Order::PAYMENT_TYPES, :prompt => "---"
   %h3 売上明細
   = f.fields_for :line_items do |line_item_form|
-    .field
-      = line_item_form.label :product, "商品"
-      = line_item_form.collection_select :product_id, Product.all, :id, :name, :include_blank => "---"
+    = render :partial => "orders/line_item", :locals => {:f => line_item_form}
 
-      = line_item_form.label :quantity, "数量"
-      = line_item_form.text_field :quantity, :size => 5
+  %p
+    = add_child_link "[明細行の追加]", f, :line_items, {:id => "add_new_line_item_link"}, {:partial => "orders/line_item"}
 
   .actions
-    = f.submit '保存する',:class => "submit"
-= link_to '戻る', orders_path
+    = f.submit "保存", :class => "submit"

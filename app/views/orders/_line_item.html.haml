@@ -1,0 +1,8 @@
+.field
+  = f.label :product, "商品"
+  = f.collection_select :product_id, Product.all, :id, :name, :include_blank => "---"
+
+  = f.label :quantity, "数量"
+  = f.text_field :quantity, :size => 5
+
+
