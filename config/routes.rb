@@ -4,6 +4,7 @@ KaisenOonuma::Application.routes.draw do
   get "store/index"
   get "store" => "store#index", :as => :store
   get "store/suppliers/" => "store#suppliers"
+  get "orders/edit/:id" => "orders#edit"
   match "store/checkout", :as => :checkout
   post "store/save_order", :as => :save_order
   post "store/add_to_cart/:id" => "store#add_to_cart"

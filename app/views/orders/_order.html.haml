@@ -33,5 +33,8 @@
       - order.line_items.each do |line_item|
         = number_with_delimiter(line_item.product.price * line_item.quantity)
         %br
+%p
+  =link_to '編集', edit_order_path(order)
+
 %br
 
