@@ -1,0 +1,13 @@
+Notifier#ordered
+
+<%= @greeting %>, find me in app/views/app/views/notifier/ordered.text.erb
+
+<%= @order.name %> 様
+
+ご注文ありがとうございます。
+当店では買い切りとなっております。
+キャンセルはできません。
+
+<% @order.line_items.each do |li| %>
+- <%= li.product.name %>
+<% end %>

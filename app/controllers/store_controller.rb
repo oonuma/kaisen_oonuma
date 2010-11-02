@@ -16,6 +16,7 @@ class StoreController < ApplicationController
     @order.add_line_items_from_cart(@cart)
     if @order.save
       @cart.empty!
+      Notifier.ordered(@order).deliver
       redirect_to store_path, :notice => "ご注文ありがとうございます!!"
     else
       render checkout_path
