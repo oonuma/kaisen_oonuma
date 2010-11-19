@@ -1,4 +1,6 @@
 KaisenOonuma::Application.routes.draw do
+  devise_for :admins
+
   get "orders/index"
 
   get "store/index"
@@ -63,7 +65,7 @@ KaisenOonuma::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "store#index"
 
   # See how all your routes lay out with "rake routes"
 
