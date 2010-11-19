@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_filter :authenticate_admin!
+
   def index
     @orders = Order.order(:created_at).reverse_order
   end
