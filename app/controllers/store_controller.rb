@@ -2,9 +2,13 @@ class StoreController < ApplicationController
   before_filter :set_cart
   
   def index
+#    @hot_selling_products = Product.limit(3)
+    @hot_selling_products = LineItem.count(:group => :product_id).sort_by{|id, count| -count }[0,3].map{|id, count| Product.find(id)}
+    @recent_products = Product.recent(3)
     @products = Product.for_sale.paginate :page => params[:page], :per_page => 4
   end
 
+  
   def checkout
     if @cart.nil? || @cart.items.empty?
       redirect_to store_path, :notice => "カートは現在、空です"

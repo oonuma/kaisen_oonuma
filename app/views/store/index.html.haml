@@ -1,3 +1,14 @@
+%h3 売れ筋商品
+- @hot_selling_products.each_with_index do |product, i|
+  %p.name
+    #{i+1}位:#{product.name}
+
+%h3 新着商品
+- @recent_products.each do |product, i|
+  %p.name
+    =product.name
+
+%h3 商品一覧    
 - @products.each do |product|
   %div.product
     = image_tag(product.image_url, :class => "photo")
