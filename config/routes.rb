@@ -16,6 +16,17 @@ KaisenOonuma::Application.routes.draw do
   resources :orders
   resources :products
 
+  resources :products do
+    collection do
+      get "sold"
+    end
+
+    member do
+      get 'who_bought'
+    end
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

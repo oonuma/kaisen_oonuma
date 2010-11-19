@@ -12,6 +12,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :shop
   has_many :line_items
+  has_many :orders, :through => :line_items
   private
   def price_must_be_a_multiple_of_hundreds
     errors.add(:price,"must be a multiple of hundreds") unless price % 100  == 0

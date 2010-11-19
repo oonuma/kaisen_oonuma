@@ -82,4 +82,13 @@ class ProductsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def who_bought
+    @product = Product.find(params[:id])
+    @orders = @product.orders
+    respond_to do |format|
+      format.xml { render :layput => false }
+    end
+  end
 end
+
